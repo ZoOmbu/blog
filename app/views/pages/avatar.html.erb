@@ -1,0 +1,16 @@
+<div id="page_wrapper">
+  <div id="profile_image">
+    <%= image_tag @user.avatar.url(:medium) %>
+  </div>
+
+  <div id="content">
+    <h1>Preview of avatar</h1>
+  </div>
+</div>
+<%= form_for @user, url: user_session_path, html: { multipart: true } do |form| %>
+    <%= form.file_field :avatar %>
+
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>

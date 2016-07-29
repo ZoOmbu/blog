@@ -1,0 +1,14 @@
+<div class="comment clearfix">
+  <div class="comment_content">
+    <p class="comment_name"><Strong><%= subcomment.name %></Strong></p>
+    <p class="comment_body"><%= subcomment.body %></p>
+    <p class="comment_time"><%= time_ago_in_words(subcomment.created_at) %></p>
+  </div>
+  <% if user_signed_in? %>
+      <p><%= link_to 'Delete', [subcomment.comment.post, subcomment],
+                     method: :delete,
+                     class: "button",
+                     data: { confirm: 'Are you sure?'} %>
+      </p>
+  <% end %>
+</div>
